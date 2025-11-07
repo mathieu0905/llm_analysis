@@ -1,0 +1,31 @@
+title: LLM Code Analysis
+description: 跨任务评测结果与论文链接
+url: https://mathieu0905.github.io
+baseurl: /llm_analysis
+lang: zh-CN
+
+# Use remote theme from the provided template repo
+remote_theme: ximinng/GithubPages-Template
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+
+# Build settings
+markdown: kramdown
+exclude:
+  - README.md
+  - README_zh.md
+  - .env
+  - .venv
+  - node_modules
+  - vendor
+
+nav:
+  - text: 首页
+    url: /
+  - text: 结果说明
+    url: /results
+  - text: 论文
+    url: /paper
+

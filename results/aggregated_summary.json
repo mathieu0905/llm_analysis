@@ -1,0 +1,90 @@
+{
+  "summary": {
+    "GPT-5-mini": {
+      "AST": {
+        "cases": 75,
+        "passes": 72,
+        "avg_score": 0.8019,
+        "pass_rate": 0.96,
+        "parse_ok_rate": 0.9867,
+        "passes_auto": 72,
+        "pass_rate_auto": 0.96,
+        "passes_human": 72,
+        "pass_rate_human": 0.96,
+        "human_labeled": 0
+      },
+      "CFG": {
+        "cases": 75,
+        "passes": 66,
+        "avg_score": 0.8515,
+        "pass_rate": 0.88,
+        "parse_ok_rate": 1,
+        "passes_auto": 66,
+        "pass_rate_auto": 0.88,
+        "passes_human": 66,
+        "pass_rate_human": 0.88,
+        "human_labeled": 0
+      },
+      "CG": {
+        "cases": 75,
+        "passes": 51,
+        "avg_score": 0.8529,
+        "pass_rate": 0.68,
+        "parse_ok_rate": 1,
+        "passes_auto": 51,
+        "pass_rate_auto": 0.68,
+        "passes_human": 51,
+        "pass_rate_human": 0.68,
+        "human_labeled": 0
+      },
+      "DP_TAINT": {
+        "avg_f1": 0.8233,
+        "projects": 38,
+        "taint_avg_f1": 0.613,
+        "taint_projects": 38
+      },
+      "POINTER": {
+        "programs": 48,
+        "avg_program_jaccard": 0.5845
+      },
+      "FLAKY": {
+        "summary": {
+          "correct": 13,
+          "total": 65,
+          "accuracy": 0.2
+        },
+        "concept": {
+          "correct": 9,
+          "total": 52,
+          "accuracy": 0.1731
+        }
+      },
+      "MUTANT": {
+        "fewshot": {
+          "correct": 183,
+          "total": 200,
+          "accuracy": 0.915
+        },
+        "zeroshot": {
+          "correct": 170,
+          "total": 200,
+          "accuracy": 0.85
+        }
+      },
+      "EXPRESSION": {
+        "total": 32,
+        "missing": 0,
+        "invalid": 0,
+        "hit5": 32,
+        "hit10": 32,
+        "hit20": 32,
+        "cases": 32,
+        "status_counts": {
+          "match": 32
+        },
+        "threshold": 0.96
+      }
+    }
+  },
+  "notes": {}
+}
