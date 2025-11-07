@@ -65,3 +65,12 @@ Re-run this script after refreshing task outputs to keep the dashboard current.
   2. 通过 `experiments/prompts/` 目录的跑批，测量 across-prompt variance、worst-case score 与排名稳定性，以回应“prompt 随意性”疑虑；
   3. 在补充材料中附上 `prompt_ablation_summary.csv`（若尚未生成，可复用文档中的示例脚本）。
 - 后续计划：在主文中加入 Prompt Robustness 小节，报告各因素对代表任务（如 CFG、flaky reasoning）的贡献及显著性检测结果。
+
+<hr/>
+
+<h2 id="interactive-results">Interactive Results (Sortable)</h2>
+<p class="text-muted">点击表头可排序。表头第一行标注任务类别：Syntax / Semantic(Static) / Dynamic。</p>
+
+<div id="results-table" class="table-responsive"><div class="text-muted">Loading…</div></div>
+
+<script src="{{ site.baseurl }}/assets/js/sortable-results.js"></script>

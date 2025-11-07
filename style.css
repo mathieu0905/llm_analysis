@@ -1,0 +1,14 @@
+/* Minimal styles to support the provided template */
+:root{ --accent-start:#6a8dff; --accent-end:#b56cff; }
+body { background: #ffffff; color:#111; }
+.title-font { font-size: clamp(28px, 4vw, 48px); font-weight: 800; letter-spacing: .2px; }
+.x-gradient-font { background: linear-gradient(90deg, var(--accent-start), var(--accent-end)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.x-gradient-block { background: linear-gradient(180deg, rgba(106,141,255,0.10), rgba(181,108,255,0.10)); border-radius: 10px; }
+.card-title-margin { margin-bottom: .6rem; }
+.author .link { text-decoration: none; }
+.body-hr { border: none; height: 1px; background: rgba(0,0,0,.08); margin: .6rem 0 1.2rem; }
+.footer { border-top: 1px solid rgba(0,0,0,.06); padding: 18px 0 28px; background: #fafbff; }
+.footer-title { font-weight: 700; }
+.footer-text { color: #6b7280; }
+.figure .figure-caption { color: #6b7280; }
+
