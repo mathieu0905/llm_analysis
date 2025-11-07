@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LLM Code Analysis — 项目主页</title>
+    <meta name="description" content="LLM Code Analysis：代码分析任务的最小可运行管线与评测结果快照" />
+    <style>
+      :root { --bg: #0b0c10; --card: #111218; --muted: #9aa3b2; --text: #e6e6e6; --brand: #4f8cff; --ok:#3ecf8e; --warn:#ffb020; --bad:#ff6b6b; }
+      * { box-sizing: border-box; }
+      body { margin: 0; font: 14px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif; background: var(--bg); color: var(--text); }
+      header { padding: 24px 16px; border-bottom: 1px solid #1c1d25; background: linear-gradient(180deg, rgba(79,140,255,.08), transparent 60%); }
+      .container { width: min(1060px, 100%); margin: 0 auto; padding: 0 8px; }
+      .title { display:flex; align-items:center; gap:12px; margin:0 0 6px; }
+      .title h1 { font-size: 22px; font-weight: 650; margin: 0; }
+      .tag { font-size: 12px; color: var(--muted); }
+      .actions { display:flex; gap:10px; flex-wrap: wrap; margin-top: 12px; }
+      .btn { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px; text-decoration:none; color: var(--text); background:#1a1b23; border:1px solid #262736; }
+      .btn:hover { border-color:#2f3142; background:#1d1e28; }
+      .btn.primary { background: #17305e; border-color:#294f94; color:#eaf1ff; }
+      main { padding: 24px 16px 40px; }
+      section { margin: 18px 0 26px; }
+      h2 { font-size: 18px; margin: 0 0 12px; font-weight: 600; }
+      p { margin: 8px 0; color: #cfd6e6; }
+      .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:12px; }
+      .card { background: var(--card); border: 1px solid #1b1d27; border-radius: 10px; padding: 14px; }
+      .meta { color: var(--muted); font-size: 12px; }
+      table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 10px; overflow: hidden; border: 1px solid #1b1d27; }
+      thead th { position: sticky; top: 0; background: #161823; text-align: left; font-weight: 600; color: #cfd6e6; }
+      th, td { padding: 10px 12px; border-bottom: 1px solid #1b1d27; white-space: nowrap; }
+      tbody tr:hover { background: #141622; }
+      .num { font-variant-numeric: tabular-nums; }
+      .muted { color: var(--muted); }
+      details { background: var(--card); border: 1px solid #1b1d27; border-radius: 10px; padding: 10px 12px; }
+      summary { cursor: pointer; }
+      footer { padding: 18px 16px 32px; border-top: 1px solid #1c1d25; color: var(--muted); font-size: 12px; }
+      code { background: #161823; padding: 2px 6px; border-radius: 6px; border:1px solid #1b1d27; }
+      .status-ok { color: var(--ok); }
+      .status-warn { color: var(--warn); }
+      .status-bad { color: var(--bad); }
+      .hidden { display:none; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 6h9l1 2h6v10a2 2 0 0 1-2 2H4V6z" fill="#4f8cff" fill-opacity=".25"/>
+            <path d="M4 6h9l1 2h6" stroke="#4f8cff" stroke-width="1.4"/>
+          </svg>
+          <h1>LLM Code Analysis</h1>
+          <span class="tag">代码分析任务的最小可运行管线与评测结果</span>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="https://arxiv.org/abs/2305.12138" target="_blank" rel="noopener">📄 arXiv</a>
+          <a class="btn" href="README_zh.md">📘 中文 README</a>
+          <a class="btn" href="README.md">📗 English README</a>
+          <a class="btn" href="results.md">📊 详细结果说明</a>
+          <a class="btn" href="results/aggregated_summary.json">🧾 原始 JSON</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section>
+        <h2>最新评测快照</h2>
+        <p class="meta">从 <code>results/aggregated_summary.json</code> 自动读取并渲染。若需发布到 GitHub Pages 的 <code>/docs</code> 目录，请将该 JSON 同步到 <code>docs/</code> 并更新相对路径。</p>
+        <div id="results-wrap" class="card"><span class="muted">正在加载数据…</span></div>
+      </section>
+
+      <section>
+        <h2>补充资料</h2>
+        <div class="cards">
+          <div class="card">
+            <strong>论文（arXiv）</strong>
+            <p class="muted">Exploring Code Analysis: Zero‑Shot Insights on Syntax and Semantics with LLMs.</p>
+            <p><a class="btn" href="https://arxiv.org/abs/2305.12138" target="_blank" rel="noopener">打开 arXiv</a></p>
+            <details>
+              <summary>引用（BibTeX）</summary>
+              <pre><code>@article{ma2023exploring,
+  title={Exploring Code Analysis: Zero-Shot Insights on Syntax and Semantics with LLMs},
+  author={Ma, Wei and Lin, Zhihao and Liu, Shangqing and Hu, Qiang and Liu, Ye and Wang, Wenhan and Zhang, Cen and Nie, Liming and Li, Li and Liu, Yang and Jiang, Lingxiao},
+  journal={arXiv preprint arXiv:2305.12138},
+  year={2023}
+}</code></pre>
+            </details>
+          </div>
+          <div class="card">
+            <strong>结果说明（Markdown）</strong>
+            <p class="muted">关于缺失项、口径与诊断方法的注记。</p>
+            <p><a class="btn" href="results.md">查看 results.md</a></p>
+          </div>
+          <div class="card">
+            <strong>原始聚合 JSON</strong>
+            <p class="muted">可用于自定义可视化或复现统计。</p>
+            <p><a class="btn" href="results/aggregated_summary.json">下载 JSON</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div>Last updated: <span id="last-updated">—</span></div>
+        <div class="muted">资源路径均为相对路径，适配 GitHub Pages 项目站点（<code>https://用户名.github.io/仓库名/</code>）。</div>
+      </div>
+    </footer>
+
+    <script>
+      const fmt = (n, d=3) => (typeof n === 'number' && isFinite(n)) ? n.toFixed(d) : '—';
+      const pct = (n, d=1) => (typeof n === 'number' && isFinite(n)) ? (n*100).toFixed(d)+'%' : '—';
+      const passCell = (o) => (o && typeof o.passes === 'number' && typeof o.cases === 'number') ? `${o.passes}/${o.cases}` : '—';
+
+      function buildTable(data) {
+        const wrap = document.getElementById('results-wrap');
+        if (!data || !data.summary || !Object.keys(data.summary).length) {
+          wrap.innerHTML = '<span class="muted">未找到可用数据。</span>';
+          return;
+        }
+
+        const models = Object.keys(data.summary);
+        const table = document.createElement('table');
+        const thead = document.createElement('thead');
+        thead.innerHTML = `
+          <tr>
+            <th>Model</th>
+            <th>AST</th>
+            <th>CFG</th>
+            <th>CG</th>
+            <th>DP F1</th>
+            <th>Taint F1</th>
+            <th>Pointer</th>
+            <th>Mutant FS</th>
+            <th>Mutant ZS</th>
+            <th>Flaky Sum</th>
+            <th>Flaky Cpt</th>
+            <th>Expr</th>
+            <th>Expr@5</th>
+            <th>Expr@10</th>
+            <th>Expr@20</th>
+          </tr>`;
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        for (const m of models) {
+          const s = data.summary[m] || {};
+          const tr = document.createElement('tr');
+          const dp = s.DP_TAINT || {};
+          const ptr = s.POINTER || {};
+          const fl = s.FLAKY || {}; const fls = fl.summary || {}; const flc = fl.concept || {};
+          const mu = s.MUTANT || {}; const muf = (mu.fewshot||{}); const muz = (mu.zeroshot||{});
+          const ex = s.EXPRESSION || {};
+          tr.innerHTML = `
+            <td class="num"><strong>${m}</strong></td>
+            <td class="num">${passCell(s.AST)}</td>
+            <td class="num">${passCell(s.CFG)}</td>
+            <td class="num">${passCell(s.CG)}</td>
+            <td class="num">${fmt(dp.avg_f1)}</td>
+            <td class="num">${fmt(dp.taint_avg_f1)}</td>
+            <td class="num">${fmt(ptr.avg_program_jaccard)}</td>
+            <td class="num">${pct(muf.accuracy)}</td>
+            <td class="num">${pct(muz.accuracy)}</td>
+            <td class="num">${pct(fls.accuracy)}</td>
+            <td class="num">${pct(flc.accuracy)}</td>
+            <td class="num">${ex.cases ?? '—'}</td>
+            <td class="num">${ex.hit5 ?? '—'}</td>
+            <td class="num">${ex.hit10 ?? '—'}</td>
+            <td class="num">${ex.hit20 ?? '—'}</td>
+          `;
+          tbody.appendChild(tr);
+        }
+        table.appendChild(tbody);
+        wrap.innerHTML = '';
+        wrap.appendChild(table);
+      }
+
+      async function load() {
+        const last = document.getElementById('last-updated');
+        try {
+          const resp = await fetch('results/aggregated_summary.json', { cache: 'no-store' });
+          if (!resp.ok) throw new Error('HTTP '+resp.status);
+          const data = await resp.json();
+          buildTable(data);
+        } catch (err) {
+          const wrap = document.getElementById('results-wrap');
+          wrap.innerHTML = `<span class="muted">加载失败：${String(err)}。请确认 <code>results/aggregated_summary.json</code> 存在并可被 GitHub Pages 访问。</span>`;
+        } finally {
+          last.textContent = new Date(document.lastModified).toLocaleString();
+        }
+      }
+      load();
+    </script>
+  </body>
+ </html>
