@@ -96,169 +96,101 @@
     </div>
 
 </header>
-<br>
 
 <main class="container">
+    <!-- Results (Sortable) at top -->
+    <div class="card mt-3">
+        <div class="card-body">
+            <h2 class="card-title card-title-margin">Results (Sortable)</h2>
+            <p class="text-muted">Click headers to sort. The first header row indicates task categories: Syntax, Semantic/Static, Dynamic.</p>
+            <div id="results-table" class="table-responsive"><div class="text-muted">Loading…</div></div>
+        </div>
+    </div>
+    <br>
     <!-- Abstract -->
     <div class="card border-0">
         <div class="card-body x-gradient-block">
-            <h2 class="card-title text-center card-title-margin">Abstract</h2>
+            <h2 class="card-title text-center card-title-margin">Overview</h2>
             <p class="card-text">
-                Code analysis is a fundamental problem in Software Engineering (SE), playing a crucial role in tasks such as debugging, performance optimization, and security assessment. Human developers typically approach code analysis through syntax understanding, static behavior analysis, and dynamic behavior reasoning. Traditional code analysis tools, while effective, are often limited by high false positive/negative rates, language specificity, and complex configurations. Recently, large language models (LLMs) have emerged as promising tools for automating various code-related tasks. However, their capabilities for addressing code analysis tasks remain underexplored.
-            </p>
-            <p class="card-text">
-                This paper investigates the potential of nine state-of-the-art LLMs for code analysis within their internal knowledge. We structure our study around three aspects of code analysis aligned with human practices: syntax understanding, static behavior analysis, and dynamic behavior reasoning. Using datasets spanning multiple programming languages (C, Java, Python, Solidity), we evaluate the performance of LLMs on nine representative tasks, such as Abstract Syntax Tree (AST) generation, Control Flow Graph (CFG) construction, and data dependency analysis. Our results reveal that while LLMs excel in syntax parsing and show initial promise in static analysis, their dynamic reasoning capabilities remain limited. These findings offer insights into how LLMs can serve as general-purpose code analyzers and clarify directions for future enhancement of LLM-based code analysis.
+              LLM Code Analysis is a compact evaluation framework for program analysis tasks. It provides reproducible pipelines, unified metrics, and a small review UI across Syntax (AST + Expression), Semantic/Static (CFG/CG, DP/Taint, Pointer), and Dynamic (Mutant, Flaky) tasks. Use this site to browse aggregated results, figures, and links to code and paper.
             </p>
         </div>
     </div>
     <br>
 
-    <!-- Online Demo -->
+    <!-- Removed demo/video sections to emphasize framework usage -->
+
+    <!-- Tasks & Metrics -->
     <div class="card">
         <div class="card-body">
-            <h2 class="card-title card-title-margin">Online Demo</h2>
-            <hr class="body-hr"/>
-            <p class="card-text">
-                See aggregated metrics and task-level samples. Full notes in the Results page.
-            </p>
-            <div class="text-center">
-                <figure class="figure">
-                    <img src="assets/paper/figures/expression_matching_sample.png" class="img-thumbnail figure-img img-fluid rounded" alt="expression matching sample">
-                    <figcaption class="figure-caption">Expression matching example (from figures/expression_matching_sample.pdf).</figcaption>
-                </figure>
-            </div>
-        </div>
-    </div>
-    <br>
-
-    <!-- Video 1 -- video in modal -->
-    <div class="card">
-        <div class="card-body">
-            <h2 class="card-title card-title-margin">Video<small class="text-body-secondary">(3min)</small></h2>
-            <hr class="body-hr"/>
-
-            <div class="container text-center">
-                <div class="row">
-                    <div class="col">
-                        <!-- video teaser -->
-                        <img src="assets/paper/figures/flaky/fig_flaky_topconfusions.png" class="img-thumbnail figure-img img-fluid rounded" alt="flaky top confusions">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop">
-                            Play Video
-                        </button>
-
-                        <!-- Youtube in Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-xl">
-                                <div class="modal-content">
-                                    <div class="modal-header text-center">
-                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                                            <u>Short presentation</u>(3min)
-                                        </h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="embed-responsive embed-responsive-16by9" style="text-align:center">
-                                            <iframe class="embed-responsive-item text-center"
-                                                    src="https://www.youtube.com/embed/j20MBc1hWGQ"
-                                                    frameborder="0"
-                                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                                    style="width:100%; height: 60em; clip-path:inset(1px 1px);"
-                                                    allowfullscreen></iframe>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- end row-->
-            </div> <!-- end container-->
-        </div>
-    </div>
-    <br>
-
-    <!-- Methodology -->
-    <div class="card">
-        <div class="card-body">
-            <h2 class="card-title card-title-margin">Methodology</h2>
+            <h2 class="card-title card-title-margin">Tasks & Metrics</h2>
             <hr class="body-hr"/>
             <p class="card-text">
                 Minimal pipelines + unified metrics across program analysis tasks, with consistent prompting, parsing, and diagnosis rules. See the repository for scripts and evaluation details.
             </p>
             <div class="text-center">
                 <figure class="figure">
-                    <img src="assets/paper/figures/cg_cfg.png" class="figure-img img-fluid rounded" alt="method (CG/CFG)">
-                    <figcaption class="figure-caption">Method illustration (CG/CFG) — figures/cg_cfg.pdf.</figcaption>
+                    <img src="assets/paper/figures/cg_cfg.png" class="figure-img img-fluid rounded" alt="cg/cfg illustration">
+                    <figcaption class="figure-caption">CG/CFG illustration.</figcaption>
                 </figure>
             </div>
         </div>
     </div>
     <br>
 
-    <!-- Experiments -->
+    <!-- Artifacts & Plots -->
     <div class="card">
         <div class="card-body">
-            <h2 class="card-title card-title-margin">Experiments</h2>
+            <h2 class="card-title card-title-margin">Artifacts & Plots</h2>
             <hr class="body-hr"/>
-            <p class="card-text">
-                Snapshot numbers are available via the JSON artifact and Results page. Replace placeholders below with your own content as needed.
-            </p>
-            <br>
-
-            <!-- Table example -->
-            <table class="table">
-                <thead>
-                <tr class="table-primary">
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                </tbody>
-            </table>
-
-            <br>
-
-            <div class="text-center">
+            <p class="card-text">Snapshot numbers are available via the JSON artifact and Results page. The repository includes scripts to regenerate figures and tables.</p>
+            <div class="row g-3 mt-1">
+              <div class="col-12 col-md-4 text-center">
                 <figure class="figure">
-                    <img src="assets/paper/new_results/ast_cfg_cg_baselines/structures_AST_passfail_all_2col_hbar.png" class="img-thumbnail figure-img img-fluid rounded" alt="AST pass/fail bars">
-                    <figcaption class="figure-caption">AST pass/fail bars — new_results/ast_cfg_cg_baselines/structures_AST_passfail_all_2col_hbar.pdf.</figcaption>
+                  <img src="assets/paper/new_results/ast_cfg_cg_baselines/structures_AST_passfail_all_2col_hbar.png" class="img-thumbnail figure-img img-fluid rounded" alt="AST pass/fail bars">
+                  <figcaption class="figure-caption">AST pass/fail bars.</figcaption>
                 </figure>
+              </div>
+              <div class="col-12 col-md-4 text-center">
+                <figure class="figure">
+                  <img src="assets/paper/new_results/combined_models_jaccard_program.png" class="img-thumbnail figure-img img-fluid rounded" alt="Combined Jaccard (program)">
+                  <figcaption class="figure-caption">Combined Jaccard (program) across models.</figcaption>
+                </figure>
+              </div>
+              <div class="col-12 col-md-4 text-center">
+                <figure class="figure">
+                  <img src="assets/paper/figures/flaky/fig_flaky_topconfusions.png" class="img-thumbnail figure-img img-fluid rounded" alt="Flaky top confusions">
+                  <figcaption class="figure-caption">Flaky: top confusions.</figcaption>
+                </figure>
+              </div>
             </div>
 
         </div>
     </div>
     <br>
+
+    <!-- Get Started -->
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title card-title-margin">Get Started</h2>
+        <hr class="body-hr"/>
+        <p class="card-text">Minimal steps to run and reproduce metrics:</p>
+        <pre class="bg-light p-3 border rounded"><code># setup
+bash scripts/setup_venv.sh -e -x
+source .venv/bin/activate
+cp .env.example .env  # fill provider keys
+
+# evaluate and aggregate
+python evaluation/evaluate_multi_models.py --out results/aggregated_summary.json
+
+# render figures (optional)
+python evaluation/render_graphs.py
+</code></pre>
+        <p class="mt-2">
+          See <a href="README.md">README</a> and <a href="README_zh.md">README_zh</a> for datasets, prompts, and script options.
+        </p>
+      </div>
+    </div>
 
     <!-- Supplementary Material -->
     <div class="card">
@@ -339,17 +271,6 @@
         </div>
     </div>
 </footer>
-
-<!-- Results combined with RQ group header -->
-<main class="container" style="margin-top:2rem; margin-bottom:2rem;">
-  <div class="card">
-    <div class="card-body">
-      <h2 class="card-title card-title-margin">Results (Sortable)</h2>
-      <p class="text-muted">Click headers to sort. The first header row indicates task categories: Syntax, Semantic/Static, Dynamic.</p>
-      <div id="results-table" class="table-responsive"><div class="text-muted">Loading…</div></div>
-    </div>
-  </div>
-</main>
 
 <script src="assets/js/sortable-results.js"></script>
 

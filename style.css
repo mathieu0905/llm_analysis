@@ -11,4 +11,6 @@ body { background: #ffffff; color:#111; }
 .footer-title { font-weight: 700; }
 .footer-text { color: #6b7280; }
 .figure .figure-caption { color: #6b7280; }
-
+/* Center header cells and nudge results upward spacing */
+.table thead th { text-align: center; vertical-align: middle; }
+.results-block { margin-top: 8px; }
