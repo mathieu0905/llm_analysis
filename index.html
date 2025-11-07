@@ -16,18 +16,11 @@
     <!--    });-->
     <!--</script>-->
 
-    <!--Include the icon fonts stylesheet-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!--Include Bootstrap’s CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
           crossorigin="anonymous">
-    <!--Local Icon-->
-    <link rel="stylesheet" href="icons/style.css">
-    <!--Local Fonts-->
-    <link rel="stylesheet" href="fonts/avenir-next/stylesheet.css">
-    <link rel="stylesheet" href="fonts/segoe-print/stylesheet.css">
-    <!-- Custom styles for this template -->
+    <!-- Optional minimal custom styles for spacing -->
     <link rel="stylesheet" href="style.css">
 
     <meta charset="utf-8">
@@ -48,7 +41,7 @@
     <hr>
     <!-- Paper Title -->
     <div class="container text-center">
-        <span class="title-font x-gradient-font">Exploring Code Analysis: Zero‑Shot Insights on Syntax and Semantics with LLMs</span>
+        <h1 class="h3 fw-bold my-2">Exploring Code Analysis: Zero‑Shot Insights on Syntax and Semantics with LLMs</h1>
     </div>
     <hr>
     <!-- author list -->
@@ -87,22 +80,9 @@
     <!-- links -->
     <div class="text-center">
         <div class="row justify-content-md-center">
-            <div id="links">
-                <div class="col col-lg-2">
-                    <a id="paper" href="https://arxiv.org/abs/2305.12138" target="_blank">Paper</a>
-                </div>
-                <div class="col col-lg-2">
-                    <a id="arxiv" href="https://arxiv.org/abs/2305.12138" target="_blank">Arxiv</a>
-                </div>
-                <div class="col col-lg-2">
-                    <a id="code" href="https://github.com/mathieu0905/llm_analysis" target="_blank">Code</a>
-                </div>
-                <div class="col col-lg-2">
-                    <a id="demo" href="results">Results</a>
-                </div>
-                <div class="col col-lg-2">
-                    <a id="zhihu" href="#">Zhihu</a>
-                </div>
+            <div id="links" class="d-flex justify-content-center gap-3 flex-wrap">
+                <a class="btn btn-outline-primary btn-sm" id="arxiv" href="https://arxiv.org/abs/2305.12138" target="_blank" rel="noopener">ArXiv</a>
+                <a class="btn btn-primary btn-sm" id="code" href="https://github.com/mathieu0905/llm_analysis" target="_blank" rel="noopener">Code</a>
             </div>
         </div>
     </div>
@@ -110,9 +90,8 @@
     <!-- teaser -->
     <div class="text-center">
         <figure class="figure">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23eef2f7'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%239aa3b2' font-size='32'>Teaser Placeholder</text></svg>" class="img-thumbnail figure-img img-fluid rounded"
-                 alt="beautiful teaser">
-            <figcaption class="figure-caption">A caption for the above image.</figcaption>
+            <img src="assets/paper/figures/se_tasks_refined.png" class="img-thumbnail figure-img img-fluid rounded" alt="SE task overview">
+            <figcaption class="figure-caption">Software Engineering task overview (from paper figures/se_tasks_refined.pdf).</figcaption>
         </figure>
     </div>
 
@@ -144,9 +123,8 @@
             </p>
             <div class="text-center">
                 <figure class="figure">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23eef2f7'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%239aa3b2' font-size='32'>Online Demo</text></svg>" class="img-thumbnail figure-img img-fluid rounded"
-                         alt="online demo">
-                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                    <img src="assets/paper/figures/expression_matching_sample.png" class="img-thumbnail figure-img img-fluid rounded" alt="expression matching sample">
+                    <figcaption class="figure-caption">Expression matching example (from figures/expression_matching_sample.pdf).</figcaption>
                 </figure>
             </div>
         </div>
@@ -163,8 +141,7 @@
                 <div class="row">
                     <div class="col">
                         <!-- video teaser -->
-                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23eef2f7'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%239aa3b2' font-size='32'>Video Teaser</text></svg>" class="img-thumbnail figure-img img-fluid rounded"
-                             alt="video teaser">
+                        <img src="assets/paper/figures/flaky/fig_flaky_topconfusions.png" class="img-thumbnail figure-img img-fluid rounded" alt="flaky top confusions">
                     </div>
                 </div>
                 <div class="row">
@@ -221,8 +198,8 @@
             </p>
             <div class="text-center">
                 <figure class="figure">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1000' height='480'><rect width='100%' height='100%' fill='%23eef2f7'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%239aa3b2' font-size='28'>Method Diagram</text></svg>" class="figure-img img-fluid rounded" alt="method">
-                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                    <img src="assets/paper/figures/cg_cfg.png" class="figure-img img-fluid rounded" alt="method (CG/CFG)">
+                    <figcaption class="figure-caption">Method illustration (CG/CFG) — figures/cg_cfg.pdf.</figcaption>
                 </figure>
             </div>
         </div>
@@ -274,9 +251,8 @@
 
             <div class="text-center">
                 <figure class="figure">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='600'><rect width='100%' height='100%' fill='%23eef2f7'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%239aa3b2' font-size='32'>Experiments Figure</text></svg>" class="img-thumbnail figure-img img-fluid rounded"
-                         alt="experiments">
-                    <figcaption class="figure-caption">A caption for the above image.</figcaption>
+                    <img src="assets/paper/new_results/ast_cfg_cg_baselines/structures_AST_passfail_all_2col_hbar.png" class="img-thumbnail figure-img img-fluid rounded" alt="AST pass/fail bars">
+                    <figcaption class="figure-caption">AST pass/fail bars — new_results/ast_cfg_cg_baselines/structures_AST_passfail_all_2col_hbar.pdf.</figcaption>
                 </figure>
             </div>
 

@@ -1,0 +1,3 @@
+Task        GPT4o-mini   Claude-3-soonnet   CodeLlama-70b   o1-mini    Deepseek-chat
+few-shot      0.04           0.51              0.13            0.65         0.68
+zero-shot     0.02           0.16              0.              0.53         0.02

@@ -1,0 +1,5 @@
+RANK      GPT4o-mini Claude-3-soonnet CodeLlama-70b   GPT-o1-mini  Deepseek-chat
+Top-5         17           25              16              29           24
+Top-10        17           25              17              29           24
+Top-20        17           25              17              29           24
+Hit Rate     17/32        25/32           17/32           29/32        24/32

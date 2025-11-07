@@ -24,7 +24,12 @@
     th.textContent = text;
     th.style.cursor = 'pointer';
     th.addEventListener('click', () => {
-      if (state.key === key) state.asc = !state.asc; else { state.key = key; state.asc = true; }
+      if (state.key === key) {
+        state.asc = !state.asc; // toggle
+      } else {
+        state.key = key;
+        state.asc = false; // default to descending on first click
+      }
       render(window.__DATA);
     });
     return th;
@@ -75,13 +80,15 @@
       Expr_hit10_ratio: ratio(d.Expr_hit10, d.Expr_cases),
       Expr_hit20_ratio: ratio(d.Expr_hit20, d.Expr_cases)
     }));
-    const k = state.key || 'Model';
-    rows.sort((a,b)=>{
-      if (k==='Model') return state.asc ? String(a.Model).localeCompare(String(b.Model)) : String(b.Model).localeCompare(String(a.Model));
-      const va = (a[k]==null? -Infinity : a[k]);
-      const vb = (b[k]==null? -Infinity : b[k]);
-      return state.asc ? (va - vb) : (vb - va);
-    });
+    if (state.key) {
+      const k = state.key;
+      rows.sort((a,b)=>{
+        if (k==='Model') return state.asc ? String(a.Model).localeCompare(String(b.Model)) : String(b.Model).localeCompare(String(a.Model));
+        const va = (a[k]==null? -Infinity : a[k]);
+        const vb = (b[k]==null? -Infinity : b[k]);
+        return state.asc ? (va - vb) : (vb - va);
+      });
+    }
 
     const tbody = document.createElement('tbody');
     for (const d of rows){
@@ -126,4 +133,3 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
-

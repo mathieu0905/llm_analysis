@@ -1,0 +1,3 @@
+Task              GPT4o-mini   Claude-3-soonnet   CodeLlama-70b  GPT-o1-mini  Deepseek-chat
+Data Dependency      0.54           0.70              0.66           0.65          0.69
+Taint Analysis       0.56           0.54              0.58           0.57          0.55
