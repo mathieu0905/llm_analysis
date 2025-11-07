@@ -54,10 +54,8 @@
         </div>
         <div class="actions">
           <a class="btn primary" href="https://arxiv.org/abs/2305.12138" target="_blank" rel="noopener">📄 arXiv</a>
-          <a class="btn" href="README_zh.md">📘 中文 README</a>
-          <a class="btn" href="README.md">📗 English README</a>
-          <a class="btn" href="results.md">📊 详细结果说明</a>
-          <a class="btn" href="results/aggregated_summary.json">🧾 原始 JSON</a>
+          <a class="btn" href="results">📊 结果说明</a>
+          <a class="btn" href="results/aggregated_summary.json" target="_blank" rel="noopener">🧾 JSON</a>
         </div>
       </div>
     </header>
@@ -65,12 +63,12 @@
     <main class="container">
       <section>
         <h2>最新评测快照</h2>
-        <p class="meta">从 <code>results/aggregated_summary.json</code> 自动读取并渲染。若需发布到 GitHub Pages 的 <code>/docs</code> 目录，请将该 JSON 同步到 <code>docs/</code> 并更新相对路径。</p>
+        <p class="meta">从 <code>results/aggregated_summary.json</code> 自动读取并渲染。</p>
         <div id="results-wrap" class="card"><span class="muted">正在加载数据…</span></div>
       </section>
 
       <section>
-        <h2>补充资料</h2>
+        <h2>论文与引用</h2>
         <div class="cards">
           <div class="card">
             <strong>论文（arXiv）</strong>
@@ -86,16 +84,6 @@
 }</code></pre>
             </details>
           </div>
-          <div class="card">
-            <strong>结果说明（Markdown）</strong>
-            <p class="muted">关于缺失项、口径与诊断方法的注记。</p>
-            <p><a class="btn" href="results.md">查看 results.md</a></p>
-          </div>
-          <div class="card">
-            <strong>原始聚合 JSON</strong>
-            <p class="muted">可用于自定义可视化或复现统计。</p>
-            <p><a class="btn" href="results/aggregated_summary.json">下载 JSON</a></p>
-          </div>
         </div>
       </section>
     </main>
@@ -103,7 +91,7 @@
     <footer>
       <div class="container">
         <div>Last updated: <span id="last-updated">—</span></div>
-        <div class="muted">资源路径均为相对路径，适配 GitHub Pages 项目站点（<code>https://用户名.github.io/仓库名/</code>）。</div>
+        <div class="muted">发布到 GitHub Pages 后，站点地址形如 <code>https://mathieu0905.github.io/llm_analysis/</code>。</div>
       </div>
     </footer>
 
@@ -111,14 +99,12 @@
       const fmt = (n, d=3) => (typeof n === 'number' && isFinite(n)) ? n.toFixed(d) : '—';
       const pct = (n, d=1) => (typeof n === 'number' && isFinite(n)) ? (n*100).toFixed(d)+'%' : '—';
       const passCell = (o) => (o && typeof o.passes === 'number' && typeof o.cases === 'number') ? `${o.passes}/${o.cases}` : '—';
-
       function buildTable(data) {
         const wrap = document.getElementById('results-wrap');
         if (!data || !data.summary || !Object.keys(data.summary).length) {
           wrap.innerHTML = '<span class="muted">未找到可用数据。</span>';
           return;
         }
-
         const models = Object.keys(data.summary);
         const table = document.createElement('table');
         const thead = document.createElement('thead');
@@ -141,7 +127,6 @@
             <th>Expr@20</th>
           </tr>`;
         table.appendChild(thead);
-
         const tbody = document.createElement('tbody');
         for (const m of models) {
           const s = data.summary[m] || {};
@@ -174,7 +159,6 @@
         wrap.innerHTML = '';
         wrap.appendChild(table);
       }
-
       async function load() {
         const last = document.getElementById('last-updated');
         try {
@@ -184,7 +168,7 @@
           buildTable(data);
         } catch (err) {
           const wrap = document.getElementById('results-wrap');
-          wrap.innerHTML = `<span class="muted">加载失败：${String(err)}。请确认 <code>results/aggregated_summary.json</code> 存在并可被 GitHub Pages 访问。</span>`;
+          wrap.innerHTML = `<span class="muted">加载失败：${String(err)}。请确认 <code>results/aggregated_summary.json</code> 已被推送。</span>`;
         } finally {
           last.textContent = new Date(document.lastModified).toLocaleString();
         }
@@ -193,3 +177,4 @@
     </script>
   </body>
  </html>
+
