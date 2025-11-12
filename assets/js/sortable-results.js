@@ -16,7 +16,13 @@
   function ratio(passes, cases){
     return (typeof passes==='number' && typeof cases==='number' && cases>0) ? passes / cases : null;
   }
-  function pct(x, d=3){ return (typeof x === 'number' && isFinite(x)) ? (x*100).toFixed(d)+'%' : '—'; }
+  function pct(x, d=3){
+    if (!(typeof x === 'number' && isFinite(x))) return '—';
+    const s = (x * 100).toFixed(d).replace(/\.0+$/,'').replace(/\.(\d*?)0+$/,'.$1');
+    // Fallback simple trim (handles cases like '0.000')
+    const trimmed = s.replace(/\.?0+$/,'');
+    return (trimmed || '0') + '%';
+  }
   function num(x, d=3){ return (typeof x === 'number' && isFinite(x)) ? x.toFixed(d) : '—'; }
 
   function makeSortTh(text, key){
