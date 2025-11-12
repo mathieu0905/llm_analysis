@@ -6,7 +6,7 @@ body { background: #ffffff; color:#111; }
 .x-gradient-block { background: linear-gradient(180deg, rgba(106,141,255,0.10), rgba(181,108,255,0.10)); border-radius: 10px; }
 .card-title-margin { margin-bottom: .6rem; }
 .author .link { text-decoration: none; }
-.author .authors { gap: .25rem 1rem; }
+.author .authors { gap: .4rem 1.6rem; }
 .author .author-name { display: inline-flex; align-items: baseline; white-space: nowrap; font-weight: 500; }
 .author .author-name:not(:last-child)::after { content: ","; margin-left: .1rem; }
 .author .affil-sup { font-size: .7em; margin-left: .2em; color: #6b7280; }
