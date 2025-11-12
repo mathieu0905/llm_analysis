@@ -144,14 +144,98 @@
         <div class="card-body">
             <h2 class="card-title card-title-margin">Tasks & Metrics</h2>
             <hr class="body-hr"/>
-            <p class="card-text">
-                Minimal pipelines + unified metrics across program analysis tasks, with consistent prompting, parsing, and diagnosis rules. See the repository for scripts and evaluation details.
-            </p>
-            <div class="text-center">
-                <figure class="figure">
-                    <img src="assets/paper/figures/cg_cfg.png" class="figure-img img-fluid rounded" alt="cg/cfg illustration">
-                    <figcaption class="figure-caption">CG/CFG illustration.</figcaption>
-                </figure>
+            <p class="card-text">Nine tasks across Syntax, Semantic/Static, and Dynamic dimensions with unified metrics and diagnosis rules.</p>
+
+            <div class="row g-3 tasks-grid">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="p-3 border rounded h-100">
+                  <div class="fw-semibold mb-1"><i class="bi bi-diagram-3 me-1" aria-hidden="true"></i>AST (Syntax Tree)</div>
+                  <ul class="mb-0 small">
+                    <li>Pass rate: AST_passes / AST_cases</li>
+                    <li>Shown in Results as AST</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="p-3 border rounded h-100">
+                  <div class="fw-semibold mb-1"><i class="bi bi-search me-1" aria-hidden="true"></i>Expression</div>
+                  <ul class="mb-0 small">
+                    <li>Hit@5 / Hit@10 / Hit@20</li>
+                    <li>Shown in Results as Expr@k</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="p-3 border rounded h-100">
+                  <div class="fw-semibold mb-1"><i class="bi bi-diagram-3-fill me-1" aria-hidden="true"></i>CFG</div>
+                  <ul class="mb-0 small">
+                    <li>Pass rate: CFG_passes / CFG_cases</li>
+                    <li>Shown in Results as CFG</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="p-3 border rounded h-100">
+                  <div class="fw-semibold mb-1"><i class="bi bi-diagram-2 me-1" aria-hidden="true"></i>CG</div>
+                  <ul class="mb-0 small">
+                    <li>Pass rate: CG_passes / CG_cases</li>
+                    <li>Shown in Results as CG</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="p-3 border rounded h-100">
+                  <div class="fw-semibold mb-1"><i class="bi bi-intersect me-1" aria-hidden="true"></i>DP (Data‑flow)</div>
+                  <ul class="mb-0 small">
+                    <li>F1 score</li>
+                    <li>Shown in Results as DP F1</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="p-3 border rounded h-100">
+                  <div class="fw-semibold mb-1"><i class="bi bi-shield-check me-1" aria-hidden="true"></i>Taint</div>
+                  <ul class="mb-0 small">
+                    <li>F1 score</li>
+                    <li>Shown in Results as Taint F1</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="p-3 border rounded h-100">
+                  <div class="fw-semibold mb-1"><i class="bi bi-cursor-text me-1" aria-hidden="true"></i>Pointer</div>
+                  <ul class="mb-0 small">
+                    <li>Accuracy</li>
+                    <li>Shown in Results as Pointer</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="p-3 border rounded h-100">
+                  <div class="fw-semibold mb-1"><i class="bi bi-bug me-1" aria-hidden="true"></i>Mutant</div>
+                  <ul class="mb-0 small">
+                    <li>Few‑shot success rate</li>
+                    <li>Zero‑shot success rate</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="p-3 border rounded h-100">
+                  <div class="fw-semibold mb-1"><i class="bi bi-lightning-charge me-1" aria-hidden="true"></i>Flaky</div>
+                  <ul class="mb-0 small">
+                    <li>Summary accuracy</li>
+                    <li>Concept accuracy</li>
+                  </ul>
+                </div>
+              </div>
             </div>
         </div>
     </div>
