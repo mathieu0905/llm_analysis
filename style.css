@@ -6,6 +6,9 @@ body { background: #ffffff; color:#111; }
 .x-gradient-block { background: linear-gradient(180deg, rgba(106,141,255,0.10), rgba(181,108,255,0.10)); border-radius: 10px; }
 .card-title-margin { margin-bottom: .6rem; }
 .author .link { text-decoration: none; }
+.author .authors { gap: .2rem .8rem; }
+.author .author-name { white-space: nowrap; font-weight: 500; }
+.author .author-name:not(:last-child)::after { content: "•"; margin-left: .6rem; color: #9ca3af; }
 .body-hr { border: none; height: 1px; background: rgba(0,0,0,.08); margin: .6rem 0 1.2rem; }
 .footer { border-top: 1px solid rgba(0,0,0,.06); padding: 18px 0 28px; background: #fafbff; }
 .footer-title { font-weight: 700; }
