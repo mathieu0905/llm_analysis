@@ -8,8 +8,12 @@ body { background: #ffffff; color:#111; }
 .author .link { text-decoration: none; }
 .author .authors { gap: .25rem 1rem; }
 .author .author-name { display: inline-flex; align-items: baseline; white-space: nowrap; font-weight: 500; }
+.author .author-name:not(:last-child)::after { content: ","; margin-left: .1rem; }
 .author .affil-sup { font-size: .7em; margin-left: .2em; color: #6b7280; }
 .author .affil-sup:empty { display: none; }
+.author .equal-sup { font-size: .7em; margin-left: .15em; color: #6b7280; }
+.author .affil-list { display: flex; flex-wrap: wrap; justify-content: center; gap: .25rem .75rem; }
+.author .affil-item { white-space: nowrap; }
 .body-hr { border: none; height: 1px; background: rgba(0,0,0,.08); margin: .6rem 0 1.2rem; }
 .footer { border-top: 1px solid rgba(0,0,0,.06); padding: 18px 0 28px; background: #fafbff; }
 .footer-title { font-weight: 700; }
