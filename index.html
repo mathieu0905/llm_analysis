@@ -95,6 +95,28 @@
         </div>
     </div>
     <br>
+    <!-- Overview moved above teaser figure -->
+    <div class="container">
+        <div class="card border-0">
+            <div class="card-body x-gradient-block">
+                <h2 class="card-title text-center card-title-margin">Overview</h2>
+                <p class="card-text">
+                  LLM Code Analysis is a lightweight, reproducible evaluation framework that measures how well LLMs perform program‑analysis tasks.
+                </p>
+                <ul class="mb-0">
+                  <li>Standardized datasets, prompts, parsing, and scoring</li>
+                  <li>Unified metrics and JSON artifacts for auditability</li>
+                  <li>Consistent diagnosis rules and error categorization</li>
+                  <li>Compact review UI to browse model‑ and task‑wise results</li>
+                  <li>Coverage: Syntax (AST, Expression), Semantic/Static (CFG/CG, DP/Taint, Pointer), Dynamic (Mutant, Flaky)</li>
+                </ul>
+                <p class="card-text mt-2">
+                  Use this site to compare models, inspect aggregate numbers, and regenerate figures/tables with the provided scripts.
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
     <!-- teaser -->
     <div class="text-center">
         <figure class="figure">
@@ -106,26 +128,7 @@
 </header>
 
 <main class="container">
-    <!-- Abstract -->
-    <div class="card border-0">
-        <div class="card-body x-gradient-block">
-            <h2 class="card-title text-center card-title-margin">Overview</h2>
-            <p class="card-text">
-              LLM Code Analysis is a lightweight, reproducible evaluation framework that measures how well LLMs perform program‑analysis tasks.
-            </p>
-            <ul class="mb-0">
-              <li>Standardized datasets, prompts, parsing, and scoring</li>
-              <li>Unified metrics and JSON artifacts for auditability</li>
-              <li>Consistent diagnosis rules and error categorization</li>
-              <li>Compact review UI to browse model‑ and task‑wise results</li>
-              <li>Coverage: Syntax (AST, Expression), Semantic/Static (CFG/CG, DP/Taint, Pointer), Dynamic (Mutant, Flaky)</li>
-            </ul>
-            <p class="card-text mt-2">
-              Use this site to compare models, inspect aggregate numbers, and regenerate figures/tables with the provided scripts.
-            </p>
-        </div>
-    </div>
-    <br>
+    <!-- Results (Sortable) at top -->
     <!-- Results (Sortable) at top -->
     <div class="card mt-3">
         <div class="card-body">
@@ -165,20 +168,20 @@
             <div class="row g-3 mt-1">
               <div class="col-12 col-md-4 text-center">
                 <figure class="figure">
-                  <img src="assets/paper/new_results/ast_cfg_cg_baselines/structures_AST_passfail_all_2col_hbar.png" class="img-thumbnail figure-img img-fluid rounded" alt="AST pass/fail bars">
-                  <figcaption class="figure-caption">AST pass/fail bars.</figcaption>
+                  <img src="assets/outputs/structures_AST_passfail_all_2col_hbar.png" class="img-thumbnail figure-img img-fluid rounded" alt="AST pass/fail bars (outputs)">
+                  <figcaption class="figure-caption">AST: pass/fail bars (latest outputs).</figcaption>
                 </figure>
               </div>
               <div class="col-12 col-md-4 text-center">
                 <figure class="figure">
-                  <img src="assets/paper/new_results/combined_models_jaccard_program.png" class="img-thumbnail figure-img img-fluid rounded" alt="Combined Jaccard (program)">
-                  <figcaption class="figure-caption">Combined Jaccard (program) across models.</figcaption>
+                  <img src="assets/outputs/structures_CFG_passfail_all_2col_hbar.png" class="img-thumbnail figure-img img-fluid rounded" alt="CFG pass/fail bars (outputs)">
+                  <figcaption class="figure-caption">CFG: pass/fail bars (latest outputs).</figcaption>
                 </figure>
               </div>
               <div class="col-12 col-md-4 text-center">
                 <figure class="figure">
-                  <img src="assets/paper/figures/flaky/fig_flaky_topconfusions.png" class="img-thumbnail figure-img img-fluid rounded" alt="Flaky top confusions">
-                  <figcaption class="figure-caption">Flaky: top confusions.</figcaption>
+                  <img src="assets/outputs/structures_CG_passfail_all_2col_hbar.png" class="img-thumbnail figure-img img-fluid rounded" alt="CG pass/fail bars (outputs)">
+                  <figcaption class="figure-caption">CG: pass/fail bars (latest outputs).</figcaption>
                 </figure>
               </div>
             </div>

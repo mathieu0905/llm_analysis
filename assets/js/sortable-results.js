@@ -51,7 +51,7 @@
     // Group header row
     const trg = document.createElement('tr');
     const thModel = document.createElement('th'); thModel.textContent = 'Model'; thModel.rowSpan = 2; thModel.className='text-center'; trg.appendChild(thModel);
-    const thSyntax = document.createElement('th'); thSyntax.textContent = 'Syntax'; thSyntax.colSpan = 5; thSyntax.className='text-center'; trg.appendChild(thSyntax);
+    const thSyntax = document.createElement('th'); thSyntax.textContent = 'Syntax'; thSyntax.colSpan = 4; thSyntax.className='text-center'; trg.appendChild(thSyntax);
     const thStatic = document.createElement('th'); thStatic.textContent = 'Semantic/Static'; thStatic.colSpan = 5; thStatic.className='text-center'; trg.appendChild(thStatic);
     const thDynamic = document.createElement('th'); thDynamic.textContent = 'Dynamic'; thDynamic.colSpan = 4; thDynamic.className='text-center'; trg.appendChild(thDynamic);
     thead.appendChild(trg);
@@ -59,7 +59,6 @@
     // Second header row with sortable cells
     const trh = document.createElement('tr');
     trh.appendChild(makeSortTh('AST','AST_ratio'));
-    trh.appendChild(makeSortTh('Expr cases','Expr_cases'));
     trh.appendChild(makeSortTh('Expr@5','Expr_hit5_ratio'));
     trh.appendChild(makeSortTh('Expr@10','Expr_hit10_ratio'));
     trh.appendChild(makeSortTh('Expr@20','Expr_hit20_ratio'));
@@ -102,7 +101,6 @@
       tr.innerHTML = `
         <td>${d.Model}</td>
         <td class="text-center" title="${(d.AST_ratio!=null)?pct(d.AST_ratio,1):'—'}">${fmtFrac(d.AST_passes,d.AST_cases)}</td>
-        <td class="text-center">${d.Expr_cases ?? '—'}</td>
         <td class="text-center" title="${(d.Expr_hit5_ratio!=null)?pct(d.Expr_hit5_ratio,1):'—'}">${d.Expr_hit5 ?? '—'}/${d.Expr_cases ?? '—'}</td>
         <td class="text-center" title="${(d.Expr_hit10_ratio!=null)?pct(d.Expr_hit10_ratio,1):'—'}">${d.Expr_hit10 ?? '—'}/${d.Expr_cases ?? '—'}</td>
         <td class="text-center" title="${(d.Expr_hit20_ratio!=null)?pct(d.Expr_hit20_ratio,1):'—'}">${d.Expr_hit20 ?? '—'}/${d.Expr_cases ?? '—'}</td>
